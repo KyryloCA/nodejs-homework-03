@@ -3,7 +3,7 @@ const fs = require("fs/promises");
 const uuid = require("uuid").v4;
 const path = require("path");
 
-const contactsPath = path.join(__dirname, "contacts.json");
+const contactsPath = path.join(__dirname, "../models/contacts.json");
 
 async function readDB() {
   try {
