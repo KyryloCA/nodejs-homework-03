@@ -10,8 +10,8 @@ const {
   validatePutInput,
 } = require("../utilities/inputValidation");
 
-const { catchAsync } = require("../utilities/catchAsync");
-const CustomError = require("../utilities/CustomError");
+const catchAsync  = require("../utilities/catchAsync");
+const CustomError = require("../utilities/customError");
 
 // The regular way to catch error
 
@@ -67,13 +67,13 @@ const updateOneContactById = catchAsync(async (req, res, next) => {
   if (error) throw new CustomError(400, error.message);
 
   const { statusRes, messageRes } = await updateContact(value);
-  res.status(statusRes).json({ massage: messageRes });
+  res.status(statusRes).json({ message: messageRes });
 });
 
 const deleteOneContactById = catchAsync(async (req, res, next) => {
   const { statusRes, messageRes } = await removeContact(req.params.contactId);
 
-  res.status(statusRes).json({ massage: messageRes });
+  res.status(statusRes).json({ message: messageRes });
 });
 module.exports = {
   getAllContacts,
