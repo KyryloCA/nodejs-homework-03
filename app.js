@@ -11,10 +11,28 @@ dotenv.config({
 });
 
 const contactsRouter = require("./routes/api/contacts");
+const mongoose = require("mongoose");
 
 const app = express();
 
 const formatsLogger = app.get("env") === "development" ? "dev" : "short";
+
+// insert sample
+console.log("env", process.env.MONGO_URL);
+// end of sample
+
+// mongoose
+//   .connect(
+//     "mongodb+srv://3dprofix:hLRJU77AUHs66FiD@cluster0.cphysxt.mongodb.net",
+//     {
+//       useNewUrlParser: true,
+//       useUnifiedTopology: true,
+//     }
+//   )
+//   .then(() => {
+//     console.log("connected to db");
+//   })
+//   .catch((err) => console.log(err));
 
 app.use(logger(formatsLogger));
 app.use(cors());
